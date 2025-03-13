@@ -1,0 +1,1672 @@
+{
+  "name": "TabularProject19",
+  "compatibilityLevel": 1500,
+  "model": {
+    "culture": "en-US",
+    "dataSources": [
+      {
+        "type": "structured",
+        "name": "SQL/LAPTOP-8PHNH9E8\\MYSQLSERVER;Olist_Ecommerce_DWHG",
+        "connectionDetails": {
+          "protocol": "tds",
+          "address": {
+            "server": "LAPTOP-8PHNH9E8\\MYSQLSERVER",
+            "database": "Olist_Ecommerce_DWHG"
+          },
+          "authentication": null,
+          "query": null
+        },
+        "credential": {
+          "AuthenticationKind": "Windows",
+          "kind": "SQL",
+          "path": "laptop-8phnh9e8\\mysqlserver;Olist_Ecommerce_DWHG",
+          "Username": "laptop-8phnh9e8\\olaso",
+          "EncryptConnection": false
+        }
+      }
+    ],
+    "tables": [
+      {
+        "name": "DimCustomer",
+        "columns": [
+          {
+            "name": "customer_id_sk",
+            "dataType": "int64",
+            "sourceColumn": "customer_id_sk"
+          },
+          {
+            "name": "customer_id",
+            "dataType": "string",
+            "sourceColumn": "customer_id"
+          },
+          {
+            "name": "customer_zip_code_prefix",
+            "dataType": "int64",
+            "sourceColumn": "customer_zip_code_prefix"
+          },
+          {
+            "name": "customer_city",
+            "dataType": "string",
+            "sourceColumn": "customer_city"
+          },
+          {
+            "name": "customer_state",
+            "dataType": "string",
+            "sourceColumn": "customer_state"
+          },
+          {
+            "name": "gender",
+            "dataType": "string",
+            "sourceColumn": "gender"
+          },
+          {
+            "name": "customer_login_type",
+            "dataType": "string",
+            "sourceColumn": "customer_login_type"
+          },
+          {
+            "name": "age",
+            "dataType": "int64",
+            "sourceColumn": "age"
+          },
+          {
+            "name": "is_current",
+            "dataType": "int64",
+            "sourceColumn": "is_current"
+          },
+          {
+            "name": "start_date",
+            "dataType": "dateTime",
+            "sourceColumn": "start_date"
+          },
+          {
+            "name": "end_date",
+            "dataType": "dateTime",
+            "sourceColumn": "end_date"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/LAPTOP-8PHNH9E8\\MYSQLSERVER;Olist_Ecommerce_DWHG\",",
+                "    dbo_DimCustomer = Source{[Schema=\"dbo\",Item=\"DimCustomer\"]}[Data]",
+                "in",
+                "    dbo_DimCustomer"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "No. customers",
+            "expression": "DISTINCTCOUNT(DimCustomer[customer_id_sk])",
+            "formatString": "0"
+          },
+          {
+            "name": "No. active customers",
+            "expression": "DISTINCTCOUNT(FactOrderItem[customer_id_sk])"
+          },
+          {
+            "name": "Avg Age",
+            "expression": " ROUND(AVERAGE(DimCustomer[age]),0)"
+          },
+          {
+            "name": "No. Male Customers",
+            "expression": [
+              " ",
+              "CALCULATE(",
+              "    COUNT(DimCustomer[customer_id_sk]), ",
+              "    DimCustomer[gender] = \"Male\"",
+              ")"
+            ]
+          },
+          {
+            "name": "NO. Female Customers",
+            "expression": [
+              " ",
+              "CALCULATE(",
+              "    COUNT(DimCustomer[customer_id_sk]), ",
+              "    DimCustomer[gender] = \"Female\"",
+              ")"
+            ],
+            "formatString": "0"
+          },
+          {
+            "name": "No. non-active customers",
+            "expression": "DISTINCTCOUNT(DimCustomer[customer_id_sk]) -[No. active customers]"
+          },
+          {
+            "name": "No. Cutomer rCity",
+            "expression": "DISTINCTCOUNT(DimCustomer[customer_city])"
+          },
+          {
+            "name": "No. Customer State",
+            "expression": "DISTINCTCOUNT(DimCustomer[customer_state])"
+          },
+          {
+            "name": "Female Customers Percent%",
+            "expression": [
+              " ",
+              "[NO. Female Customers] / [No. customers] "
+            ],
+            "formatString": "0.00%;-0.00%;0.00%"
+          },
+          {
+            "name": "Male Customers Percent%",
+            "expression": [
+              " ",
+              "[NO. Male Customers] / [No. customers] "
+            ],
+            "formatString": "0.00%;-0.00%;0.00%"
+          }
+        ]
+      },
+      {
+        "name": "DimDate",
+        "columns": [
+          {
+            "name": "DateSK",
+            "dataType": "int64",
+            "sourceColumn": "DateSK"
+          },
+          {
+            "name": "Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Date"
+          },
+          {
+            "name": "Day",
+            "dataType": "string",
+            "sourceColumn": "Day"
+          },
+          {
+            "name": "DaySuffix",
+            "dataType": "string",
+            "sourceColumn": "DaySuffix"
+          },
+          {
+            "name": "DayOfWeek",
+            "dataType": "string",
+            "sourceColumn": "DayOfWeek"
+          },
+          {
+            "name": "DOWInMonth",
+            "dataType": "int64",
+            "sourceColumn": "DOWInMonth"
+          },
+          {
+            "name": "DayOfYear",
+            "dataType": "int64",
+            "sourceColumn": "DayOfYear"
+          },
+          {
+            "name": "WeekOfYear",
+            "dataType": "int64",
+            "sourceColumn": "WeekOfYear"
+          },
+          {
+            "name": "WeekOfMonth",
+            "dataType": "int64",
+            "sourceColumn": "WeekOfMonth"
+          },
+          {
+            "name": "Month",
+            "dataType": "string",
+            "sourceColumn": "Month"
+          },
+          {
+            "name": "MonthName",
+            "dataType": "string",
+            "sourceColumn": "MonthName"
+          },
+          {
+            "name": "Quarter",
+            "dataType": "int64",
+            "sourceColumn": "Quarter"
+          },
+          {
+            "name": "QuarterName",
+            "dataType": "string",
+            "sourceColumn": "QuarterName"
+          },
+          {
+            "name": "Year",
+            "dataType": "string",
+            "sourceColumn": "Year"
+          },
+          {
+            "name": "StandardDate",
+            "dataType": "string",
+            "sourceColumn": "StandardDate"
+          },
+          {
+            "name": "HolidayText",
+            "dataType": "string",
+            "sourceColumn": "HolidayText"
+          },
+          {
+            "name": "FiscalDay",
+            "dataType": "string",
+            "sourceColumn": "FiscalDay"
+          },
+          {
+            "name": "FiscalMonth",
+            "dataType": "string",
+            "sourceColumn": "FiscalMonth"
+          },
+          {
+            "name": "FiscalMonthName",
+            "dataType": "string",
+            "sourceColumn": "FiscalMonthName"
+          },
+          {
+            "name": "FiscalQuarter",
+            "dataType": "int64",
+            "sourceColumn": "FiscalQuarter"
+          },
+          {
+            "name": "FiscalQuarterName",
+            "dataType": "string",
+            "sourceColumn": "FiscalQuarterName"
+          },
+          {
+            "name": "FiscalYear",
+            "dataType": "string",
+            "sourceColumn": "FiscalYear"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/LAPTOP-8PHNH9E8\\MYSQLSERVER;Olist_Ecommerce_DWHG\",",
+                "    dbo_DimDate = Source{[Schema=\"dbo\",Item=\"DimDate\"]}[Data]",
+                "in",
+                "    dbo_DimDate"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DimOrderReview",
+        "columns": [
+          {
+            "name": "review_id_sk",
+            "dataType": "int64",
+            "sourceColumn": "review_id_sk"
+          },
+          {
+            "name": "review_id",
+            "dataType": "string",
+            "sourceColumn": "review_id"
+          },
+          {
+            "name": "order_id",
+            "dataType": "string",
+            "sourceColumn": "order_id"
+          },
+          {
+            "name": "review_score",
+            "dataType": "int64",
+            "sourceColumn": "review_score"
+          },
+          {
+            "name": "review_status",
+            "dataType": "string",
+            "sourceColumn": "review_status"
+          },
+          {
+            "name": "review_creation_date",
+            "dataType": "dateTime",
+            "sourceColumn": "review_creation_date"
+          },
+          {
+            "name": "review_answer_timestamp",
+            "dataType": "dateTime",
+            "sourceColumn": "review_answer_timestamp"
+          },
+          {
+            "name": "is_current",
+            "dataType": "int64",
+            "sourceColumn": "is_current"
+          },
+          {
+            "name": "start_date",
+            "dataType": "dateTime",
+            "sourceColumn": "start_date"
+          },
+          {
+            "name": "end_date",
+            "dataType": "dateTime",
+            "sourceColumn": "end_date"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/LAPTOP-8PHNH9E8\\MYSQLSERVER;Olist_Ecommerce_DWHG\",",
+                "    dbo_DimOrderReview = Source{[Schema=\"dbo\",Item=\"DimOrderReview\"]}[Data]",
+                "in",
+                "    dbo_DimOrderReview"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "No. Reviews",
+            "expression": "COUNT(DimOrderReview[review_id_sk])"
+          },
+          {
+            "name": "Avg Review Score",
+            "expression": "ROUND( AVERAGE(DimOrderReview[review_score]) , 2)"
+          },
+          {
+            "name": "Min Score",
+            "expression": " MIN(DimOrderReview[review_score])"
+          },
+          {
+            "name": "Reviewed orders",
+            "expression": " DISTINCTCOUNT(DimOrderReview[order_id])"
+          },
+          {
+            "name": "No. Bad Reviews",
+            "expression": "CALCULATE(COUNT(DimOrderReview[review_id_sk]) , DimOrderReview[review_status]=\"Negative\")",
+            "kpi": {
+              "targetExpression": "1000",
+              "statusGraphic": "Three Stars Colored",
+              "statusExpression": [
+                "var x='DimOrderReview'[No. Bad Reviews] return",
+                "            if(ISBLANK(x),BLANK(),",
+                "                    If(x<400,1,",
+                "\t                If(x<800,0,-1)",
+                "                )",
+                "            )",
+                "            "
+              ],
+              "annotations": [
+                {
+                  "name": "GoalType",
+                  "value": "StaticValue"
+                },
+                {
+                  "name": "KpiStatusType",
+                  "value": "LinearReversed"
+                },
+                {
+                  "name": "KpiThresholdType",
+                  "value": "Absolute"
+                },
+                {
+                  "name": "KpiThresholdOrdering",
+                  "value": "Ascending"
+                },
+                {
+                  "name": "KpiThresholdCount",
+                  "value": "2"
+                },
+                {
+                  "name": "KpiThreshold_0",
+                  "value": "400"
+                },
+                {
+                  "name": "KpiThreshold_1",
+                  "value": "800"
+                }
+              ]
+            }
+          },
+          {
+            "name": "No. good Reviews",
+            "expression": "CALCULATE(COUNT(DimOrderReview[review_id_sk]) , DimOrderReview[review_status]=\"positive\")"
+          },
+          {
+            "name": "Bad Review Percent",
+            "expression": [
+              " ",
+              "[No. Bad Reviews] / [No. Reviews] "
+            ],
+            "formatString": "0.00%;-0.00%;0.00%"
+          }
+        ]
+      },
+      {
+        "name": "DimProduct",
+        "columns": [
+          {
+            "name": "product_id_sk",
+            "dataType": "int64",
+            "sourceColumn": "product_id_sk"
+          },
+          {
+            "name": "product_id",
+            "dataType": "string",
+            "sourceColumn": "product_id"
+          },
+          {
+            "name": "product_name",
+            "dataType": "string",
+            "sourceColumn": "product_name"
+          },
+          {
+            "name": "product_category_name_English",
+            "dataType": "string",
+            "sourceColumn": "product_category_name_English"
+          },
+          {
+            "name": "product_category_name",
+            "dataType": "string",
+            "sourceColumn": "product_category_name"
+          },
+          {
+            "name": "product_name_length",
+            "dataType": "int64",
+            "sourceColumn": "product_name_length"
+          },
+          {
+            "name": "product_description_length",
+            "dataType": "int64",
+            "sourceColumn": "product_description_length"
+          },
+          {
+            "name": "product_photos_qty",
+            "dataType": "int64",
+            "sourceColumn": "product_photos_qty"
+          },
+          {
+            "name": "product_weight_g",
+            "dataType": "int64",
+            "sourceColumn": "product_weight_g"
+          },
+          {
+            "name": "product_length_cm",
+            "dataType": "int64",
+            "sourceColumn": "product_length_cm"
+          },
+          {
+            "name": "product_height_cm",
+            "dataType": "int64",
+            "sourceColumn": "product_height_cm"
+          },
+          {
+            "name": "product_width_cm",
+            "dataType": "int64",
+            "sourceColumn": "product_width_cm"
+          },
+          {
+            "name": "brand_name",
+            "dataType": "string",
+            "sourceColumn": "brand_name"
+          },
+          {
+            "name": "brand_description",
+            "dataType": "string",
+            "sourceColumn": "brand_description"
+          },
+          {
+            "name": "brand_website",
+            "dataType": "string",
+            "sourceColumn": "brand_website"
+          },
+          {
+            "name": "brand_status",
+            "dataType": "string",
+            "sourceColumn": "brand_status"
+          },
+          {
+            "name": "brand_tier",
+            "dataType": "string",
+            "sourceColumn": "brand_tier"
+          },
+          {
+            "name": "is_current",
+            "dataType": "int64",
+            "sourceColumn": "is_current"
+          },
+          {
+            "name": "start_date",
+            "dataType": "dateTime",
+            "sourceColumn": "start_date"
+          },
+          {
+            "name": "end_date",
+            "dataType": "dateTime",
+            "sourceColumn": "end_date"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/LAPTOP-8PHNH9E8\\MYSQLSERVER;Olist_Ecommerce_DWHG\",",
+                "    dbo_DimProduct = Source{[Schema=\"dbo\",Item=\"DimProduct\"]}[Data]",
+                "in",
+                "    dbo_DimProduct"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "No. Products",
+            "expression": " DISTINCTCOUNT(DimProduct[product_id])"
+          },
+          {
+            "name": "Average Product length",
+            "expression": "ROUND( AVERAGE(DimProduct[product_height_cm]) ,2)"
+          },
+          {
+            "name": "Average Product height",
+            "expression": "ROUND( AVERAGE(DimProduct[product_height_cm]) ,2)"
+          },
+          {
+            "name": "No. Brands",
+            "expression": " DISTINCTCOUNT(DimProduct[brand_name])"
+          },
+          {
+            "name": "Average Product Weight",
+            "expression": "ROUND( AVERAGE(DimProduct[product_weight_g])/1000 ,2)"
+          },
+          {
+            "name": "No. Brand website",
+            "expression": " DISTINCTCOUNT(DimProduct[brand_website])"
+          },
+          {
+            "name": "No. Products Category",
+            "expression": " DISTINCTCOUNT(DimProduct[product_category_name])"
+          }
+        ]
+      },
+      {
+        "name": "DimSeller",
+        "columns": [
+          {
+            "name": "seller_id_sk",
+            "dataType": "int64",
+            "sourceColumn": "seller_id_sk"
+          },
+          {
+            "name": "seller_id",
+            "dataType": "string",
+            "sourceColumn": "seller_id"
+          },
+          {
+            "name": "seller_zip_code_prefix",
+            "dataType": "int64",
+            "sourceColumn": "seller_zip_code_prefix"
+          },
+          {
+            "name": "seller_city",
+            "dataType": "string",
+            "sourceColumn": "seller_city"
+          },
+          {
+            "name": "seller_state",
+            "dataType": "string",
+            "sourceColumn": "seller_state"
+          },
+          {
+            "name": "seller_name",
+            "dataType": "string",
+            "sourceColumn": "seller_name"
+          },
+          {
+            "name": "is_current",
+            "dataType": "int64",
+            "sourceColumn": "is_current"
+          },
+          {
+            "name": "start_date",
+            "dataType": "dateTime",
+            "sourceColumn": "start_date"
+          },
+          {
+            "name": "end_date",
+            "dataType": "dateTime",
+            "sourceColumn": "end_date"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/LAPTOP-8PHNH9E8\\MYSQLSERVER;Olist_Ecommerce_DWHG\",",
+                "    dbo_DimSeller = Source{[Schema=\"dbo\",Item=\"DimSeller\"]}[Data]",
+                "in",
+                "    dbo_DimSeller"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "No. Sellers",
+            "expression": " COUNT(DimSeller[seller_id_sk])"
+          },
+          {
+            "name": "Avg Products Sold by Seller",
+            "expression": [
+              " ROUND(",
+              "DIVIDE(",
+              "    SUM(FactOrderItem[order_item_id]), ",
+              "    [No. Sellers], ",
+              "    0",
+              "),2)"
+            ],
+            "formatString": "0",
+            "kpi": {
+              "targetExpression": "30",
+              "targetFormatString": "0",
+              "statusGraphic": "Traffic Light",
+              "statusExpression": [
+                "var x='DimSeller'[Avg Products Sold by Seller] return",
+                "            if(ISBLANK(x),BLANK(),",
+                "                    If(x<12,-1,",
+                "\t                If(x<24,0,1)",
+                "                )",
+                "            )",
+                "            "
+              ],
+              "annotations": [
+                {
+                  "name": "GoalType",
+                  "value": "StaticValue"
+                },
+                {
+                  "name": "KpiStatusType",
+                  "value": "Linear"
+                },
+                {
+                  "name": "KpiThresholdType",
+                  "value": "Absolute"
+                },
+                {
+                  "name": "KpiThresholdOrdering",
+                  "value": "Ascending"
+                },
+                {
+                  "name": "KpiThresholdCount",
+                  "value": "2"
+                },
+                {
+                  "name": "KpiThreshold_0",
+                  "value": "12"
+                },
+                {
+                  "name": "KpiThreshold_1",
+                  "value": "24"
+                }
+              ]
+            }
+          },
+          {
+            "name": "Avg Revenue per Seller",
+            "expression": " ROUND(DIVIDE([Total Sales], [No. Sellers]),2)",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Total Sales",
+            "expression": " ROUND(SUM(FactOrderItem[Price]),2)",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "NO. seller City",
+            "expression": "DISTINCTCOUNT(DimSeller[seller_city])"
+          },
+          {
+            "name": "NO. seller State",
+            "expression": "DISTINCTCOUNT(DimSeller[seller_state])"
+          },
+          {
+            "name": "No. active sellers",
+            "expression": " DISTINCTCOUNT(FactOrderItem[seller_id_sk])"
+          }
+        ]
+      },
+      {
+        "name": "FactOrderItem",
+        "columns": [
+          {
+            "name": "order_id_sk",
+            "dataType": "int64",
+            "sourceColumn": "order_id_sk"
+          },
+          {
+            "name": "order_item_id",
+            "dataType": "int64",
+            "sourceColumn": "order_item_id"
+          },
+          {
+            "name": "order_id",
+            "dataType": "string",
+            "sourceColumn": "order_id"
+          },
+          {
+            "name": "price",
+            "dataType": "double",
+            "sourceColumn": "price"
+          },
+          {
+            "name": "freight_value",
+            "dataType": "double",
+            "sourceColumn": "freight_value"
+          },
+          {
+            "name": "order_status",
+            "dataType": "string",
+            "sourceColumn": "order_status"
+          },
+          {
+            "name": "device_type",
+            "dataType": "string",
+            "sourceColumn": "device_type"
+          },
+          {
+            "name": "customer_id_sk",
+            "dataType": "int64",
+            "sourceColumn": "customer_id_sk"
+          },
+          {
+            "name": "seller_id_sk",
+            "dataType": "int64",
+            "sourceColumn": "seller_id_sk"
+          },
+          {
+            "name": "product_id_sk",
+            "dataType": "int64",
+            "sourceColumn": "product_id_sk"
+          },
+          {
+            "name": "review_id_sk",
+            "dataType": "int64",
+            "sourceColumn": "review_id_sk"
+          },
+          {
+            "name": "order_purchase_datekey",
+            "dataType": "int64",
+            "sourceColumn": "order_purchase_datekey"
+          },
+          {
+            "name": "order_approved_at_datekey",
+            "dataType": "int64",
+            "sourceColumn": "order_approved_at_datekey"
+          },
+          {
+            "name": "order_delivered_carrier_datekey",
+            "dataType": "int64",
+            "sourceColumn": "order_delivered_carrier_datekey"
+          },
+          {
+            "name": "order_delivered_customer_datekey",
+            "dataType": "int64",
+            "sourceColumn": "order_delivered_customer_datekey"
+          },
+          {
+            "name": "order_estimated_delivery_datekey",
+            "dataType": "int64",
+            "sourceColumn": "order_estimated_delivery_datekey"
+          },
+          {
+            "name": "shipping_limit_datekey",
+            "dataType": "int64",
+            "sourceColumn": "shipping_limit_datekey"
+          },
+          {
+            "name": "order_time",
+            "dataType": "dateTime",
+            "sourceColumn": "order_time"
+          },
+          {
+            "name": "approved_time",
+            "dataType": "dateTime",
+            "sourceColumn": "approved_time"
+          },
+          {
+            "type": "calculated",
+            "name": "Order_processing_time(day)",
+            "dataType": "int64",
+            "isDataTypeInferred": true,
+            "expression": [
+              " ",
+              "VAR PurchaseDate = ",
+              "    DATE(",
+              "        DIVIDE(FactOrderItem[order_purchase_datekey], 10000),  -- Extract Year",
+              "        MOD(DIVIDE(FactOrderItem[order_purchase_datekey], 100), 100),  -- Extract Month",
+              "        MOD(FactOrderItem[order_purchase_datekey], 100)  -- Extract Day",
+              "    )",
+              "",
+              "VAR ApprovedDate = ",
+              "    DATE(",
+              "        DIVIDE(FactOrderItem[order_approved_at_datekey], 10000),  -- Extract Year",
+              "        MOD(DIVIDE(FactOrderItem[order_approved_at_datekey], 100), 100),  -- Extract Month",
+              "        MOD(FactOrderItem[order_approved_at_datekey], 100)  -- Extract Day",
+              "    )",
+              "",
+              "RETURN ",
+              "DATEDIFF(PurchaseDate, ApprovedDate, DAY)",
+              ""
+            ]
+          },
+          {
+            "type": "calculated",
+            "name": "Order_shipping_time",
+            "dataType": "int64",
+            "isDataTypeInferred": true,
+            "expression": [
+              "",
+              "VAR CarrierDate = ",
+              "    DATE(",
+              "        DIVIDE(FactOrderItem[order_delivered_carrier_datekey], 10000),  -- Extract Year",
+              "        MOD(DIVIDE(FactOrderItem[order_delivered_carrier_datekey], 100), 100),  -- Extract Month",
+              "        MOD(FactOrderItem[order_delivered_carrier_datekey], 100)  -- Extract Day",
+              "    )",
+              "",
+              "VAR DeliveredDate = ",
+              "    DATE(",
+              "        DIVIDE(FactOrderItem[order_delivered_customer_datekey], 10000),  -- Extract Year",
+              "        MOD(DIVIDE(FactOrderItem[order_delivered_customer_datekey], 100), 100),  -- Extract Month",
+              "        MOD(FactOrderItem[order_delivered_customer_datekey], 100)  -- Extract Day",
+              "    )",
+              "",
+              "RETURN ",
+              "DATEDIFF(CarrierDate, DeliveredDate, DAY)",
+              " "
+            ]
+          },
+          {
+            "type": "calculated",
+            "name": "Total_delivery_time",
+            "dataType": "int64",
+            "isDataTypeInferred": true,
+            "expression": [
+              "",
+              "VAR PurchaseDate = ",
+              "    DATE(",
+              "        DIVIDE(FactOrderItem[order_purchase_datekey], 10000),  -- Extract Year",
+              "        MOD(DIVIDE(FactOrderItem[order_purchase_datekey], 100), 100),  -- Extract Month",
+              "        MOD(FactOrderItem[order_purchase_datekey], 100)  -- Extract Day",
+              "    )",
+              "",
+              "VAR DeliveredDate = ",
+              "    DATE(",
+              "        DIVIDE(FactOrderItem[order_delivered_customer_datekey], 10000),  -- Extract Year",
+              "        MOD(DIVIDE(FactOrderItem[order_delivered_customer_datekey], 100), 100),  -- Extract Month",
+              "        MOD(FactOrderItem[order_delivered_customer_datekey], 100)  -- Extract Day",
+              "    )",
+              "",
+              "RETURN ",
+              "DATEDIFF(PurchaseDate, DeliveredDate, DAY)"
+            ]
+          },
+          {
+            "type": "calculated",
+            "name": "Delivery_delay",
+            "dataType": "int64",
+            "isDataTypeInferred": true,
+            "expression": [
+              "VAR EstimatedDate = ",
+              "    DATE(",
+              "        DIVIDE(FactOrderItem[order_estimated_delivery_datekey], 10000),  -- Extract Year",
+              "        MOD(DIVIDE(FactOrderItem[order_estimated_delivery_datekey], 100), 100),  -- Extract Month",
+              "        MOD(FactOrderItem[order_estimated_delivery_datekey], 100)  -- Extract Day",
+              "    )",
+              "",
+              "VAR DeliveredDate = ",
+              "    DATE(",
+              "        DIVIDE(FactOrderItem[order_delivered_customer_datekey], 10000),  -- Extract Year",
+              "        MOD(DIVIDE(FactOrderItem[order_delivered_customer_datekey], 100), 100),  -- Extract Month",
+              "        MOD(FactOrderItem[order_delivered_customer_datekey], 100)  -- Extract Day",
+              "    )",
+              "",
+              "RETURN ",
+              "IF(",
+              "    FactOrderItem[order_delivered_customer_datekey] <> -1, ",
+              "    DATEDIFF(DeliveredDate , EstimatedDate, DAY), ",
+              "    BLANK()",
+              ")",
+              ""
+            ]
+          },
+          {
+            "type": "calculated",
+            "name": "purchase_time",
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "expression": " FORMAT(FactOrderItem[order_time],  \"hh:mm:ss AM/PM\")"
+          },
+          {
+            "type": "calculated",
+            "name": "Order_approved_time",
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "expression": "FORMAT(FactOrderItem[approved_time],  \"hh:mm:ss AM/PM\")"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/LAPTOP-8PHNH9E8\\MYSQLSERVER;Olist_Ecommerce_DWHG\",",
+                "    dbo_FactOrderItem = Source{[Schema=\"dbo\",Item=\"FactOrderItem\"]}[Data]",
+                "in",
+                "    dbo_FactOrderItem"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Total Sales Amount",
+            "expression": " ROUND(SUM(FactOrderItem[Price]),2)",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Total Freight",
+            "expression": " SUM(FactOrderItem[freight_value])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Total Items Sold",
+            "expression": " SUM(FactOrderItem[order_item_id])"
+          },
+          {
+            "name": "Average Order Value",
+            "expression": " ROUND(DIVIDE([Total Sales], DISTINCTCOUNT(FactOrderItem[order_id_sk])),2)",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "kpi": {
+              "targetExpression": "130",
+              "targetFormatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+              "statusGraphic": "Shapes",
+              "statusExpression": [
+                "var x='FactOrderItem'[Average Order Value] return",
+                "            if(ISBLANK(x),BLANK(),",
+                "                    If(x<32.5,-1,",
+                "\t                If(x<78,0,1)",
+                "                )",
+                "            )",
+                "            "
+              ],
+              "annotations": [
+                {
+                  "name": "GoalType",
+                  "value": "StaticValue"
+                },
+                {
+                  "name": "KpiStatusType",
+                  "value": "Linear"
+                },
+                {
+                  "name": "KpiThresholdType",
+                  "value": "Absolute"
+                },
+                {
+                  "name": "KpiThresholdOrdering",
+                  "value": "Ascending"
+                },
+                {
+                  "name": "KpiThresholdCount",
+                  "value": "2"
+                },
+                {
+                  "name": "KpiThreshold_0",
+                  "value": "32.5"
+                },
+                {
+                  "name": "KpiThreshold_1",
+                  "value": "78"
+                }
+              ]
+            },
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Avg Freight value",
+            "expression": " ROUND( AVERAGE(FactOrderItem[freight_value]) ,2)",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "No. Order Status",
+            "expression": " DISTINCTCOUNT(FactOrderItem[order_status])"
+          },
+          {
+            "name": "Total Orders",
+            "expression": " DISTINCTCOUNT(FactOrderItem[order_id])"
+          },
+          {
+            "name": "Approved Orders",
+            "expression": " COUNTROWS(FILTER(FactOrderItem, NOT(ISBLANK('FactOrderItem'[order_approved_at_datekey]))))"
+          },
+          {
+            "name": "Avg Order Processing Time",
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    AVERAGE(FactOrderItem[Order_processing_time(day)]), ",
+              "    FactOrderItem[Order_processing_time(day)] >= 0",
+              ")"
+            ],
+            "formatString": "0"
+          },
+          {
+            "name": "Avg Order Shipping Time",
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    AVERAGE(FactOrderItem[Order_shipping_time]), ",
+              "    FactOrderItem[Order_shipping_time] >= 0",
+              ")"
+            ],
+            "formatString": "0",
+            "kpi": {
+              "targetExpression": "'FactOrderItem'[Target_Delivery_Delay]",
+              "targetFormatString": "0",
+              "statusGraphic": "Traffic Light - Single",
+              "statusExpression": [
+                "var x='FactOrderItem'[Avg Order Shipping Time]/'FactOrderItem'[_Avg Order Shipping Time Goal] return",
+                "            if(ISBLANK(x),BLANK(),",
+                "                    If(x<0.4,1,",
+                "\t                If(x<0.8,0,-1)",
+                "                )",
+                "            )",
+                "            "
+              ],
+              "annotations": [
+                {
+                  "name": "GoalType",
+                  "value": "Measure"
+                },
+                {
+                  "name": "KpiStatusType",
+                  "value": "LinearReversed"
+                },
+                {
+                  "name": "KpiThresholdType",
+                  "value": "Percentage"
+                },
+                {
+                  "name": "KpiThresholdOrdering",
+                  "value": "Ascending"
+                },
+                {
+                  "name": "KpiThresholdCount",
+                  "value": "2"
+                },
+                {
+                  "name": "KpiThreshold_0",
+                  "value": "40"
+                },
+                {
+                  "name": "KpiThreshold_1",
+                  "value": "80"
+                }
+              ]
+            }
+          },
+          {
+            "name": "Avg delivery Delay",
+            "expression": " AVERAGE(FactOrderItem[Delivery_delay])",
+            "formatString": "0",
+            "kpi": {
+              "targetExpression": "'FactOrderItem'[Target_Delivery_Delay]",
+              "targetFormatString": "0",
+              "statusGraphic": "Traffic Light - Single",
+              "statusExpression": [
+                "var x='FactOrderItem'[Avg delivery Delay]/'FactOrderItem'[_Avg delivery Delay Goal] return",
+                "            if(ISBLANK(x),BLANK(),",
+                "                    If(x<0.4,1,",
+                "\t                If(x<0.8,0,-1)",
+                "                )",
+                "            )",
+                "            "
+              ],
+              "annotations": [
+                {
+                  "name": "GoalType",
+                  "value": "Measure"
+                },
+                {
+                  "name": "KpiStatusType",
+                  "value": "LinearReversed"
+                },
+                {
+                  "name": "KpiThresholdType",
+                  "value": "Percentage"
+                },
+                {
+                  "name": "KpiThresholdOrdering",
+                  "value": "Ascending"
+                },
+                {
+                  "name": "KpiThresholdCount",
+                  "value": "2"
+                },
+                {
+                  "name": "KpiThreshold_0",
+                  "value": "40"
+                },
+                {
+                  "name": "KpiThreshold_1",
+                  "value": "80"
+                }
+              ]
+            }
+          },
+          {
+            "name": "Target_Delivery_Delay",
+            "expression": " 5"
+          },
+          {
+            "name": "OnTime_Delivery_Rate",
+            "expression": [
+              " ",
+              "DIVIDE(",
+              "    COUNTROWS(FILTER(FactOrderItem, [Delivery_Delay] <= 0)),",
+              "    COUNTROWS(FactOrderItem),",
+              "    0",
+              ")"
+            ],
+            "formatString": "0.00%;-0.00%;0.00%",
+            "kpi": {
+              "targetExpression": "0.6",
+              "targetFormatString": "0.00%;-0.00%;0.00%",
+              "statusGraphic": "Shapes",
+              "statusExpression": [
+                "var x='FactOrderItem'[OnTime_Delivery_Rate] return",
+                "            if(ISBLANK(x),BLANK(),",
+                "                    If(x<0.18,-1,",
+                "\t                If(x<0.6006,0,1)",
+                "                )",
+                "            )",
+                "            "
+              ],
+              "annotations": [
+                {
+                  "name": "GoalType",
+                  "value": "StaticValue"
+                },
+                {
+                  "name": "KpiStatusType",
+                  "value": "Linear"
+                },
+                {
+                  "name": "KpiThresholdType",
+                  "value": "Absolute"
+                },
+                {
+                  "name": "KpiThresholdOrdering",
+                  "value": "Ascending"
+                },
+                {
+                  "name": "KpiThresholdCount",
+                  "value": "2"
+                },
+                {
+                  "name": "KpiThreshold_0",
+                  "value": "0.18"
+                },
+                {
+                  "name": "KpiThreshold_1",
+                  "value": "0.6006"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "FactOrderPayments",
+        "columns": [
+          {
+            "name": "orderpayment_id_sk",
+            "dataType": "int64",
+            "sourceColumn": "orderpayment_id_sk"
+          },
+          {
+            "name": "order_id",
+            "dataType": "string",
+            "sourceColumn": "order_id"
+          },
+          {
+            "name": "payment_sequential",
+            "dataType": "int64",
+            "sourceColumn": "payment_sequential"
+          },
+          {
+            "name": "customer_id_sk",
+            "dataType": "int64",
+            "sourceColumn": "customer_id_sk"
+          },
+          {
+            "name": "order_purchase_datekey",
+            "dataType": "int64",
+            "sourceColumn": "order_purchase_datekey"
+          },
+          {
+            "name": "order_status",
+            "dataType": "string",
+            "sourceColumn": "order_status"
+          },
+          {
+            "name": "device_type",
+            "dataType": "string",
+            "sourceColumn": "device_type"
+          },
+          {
+            "name": "payment_type",
+            "dataType": "string",
+            "sourceColumn": "payment_type"
+          },
+          {
+            "name": "payment_installments",
+            "dataType": "int64",
+            "sourceColumn": "payment_installments"
+          },
+          {
+            "name": "bank_name",
+            "dataType": "string",
+            "sourceColumn": "bank_name"
+          },
+          {
+            "name": "payment_value",
+            "dataType": "double",
+            "sourceColumn": "payment_value"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/LAPTOP-8PHNH9E8\\MYSQLSERVER;Olist_Ecommerce_DWHG\",",
+                "    dbo_FactOrderPayments = Source{[Schema=\"dbo\",Item=\"FactOrderPayments\"]}[Data]",
+                "in",
+                "    dbo_FactOrderPayments"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "No. Transactions",
+            "expression": " DISTINCTCOUNT(FactOrderPayments[orderpayment_id_sk])"
+          },
+          {
+            "name": "Avg Payment Installments",
+            "expression": " AVERAGE(FactOrderPayments[payment_installments])",
+            "formatString": "0",
+            "kpi": {
+              "targetExpression": "3",
+              "targetFormatString": "0",
+              "statusGraphic": "Three Symbols UnCircled Colored",
+              "statusExpression": [
+                "var x='FactOrderPayments'[Avg Payment Installments] return",
+                "            if(ISBLANK(x),BLANK(),",
+                "                    If(x<3,1,",
+                "\t                If(x<3.0001,0,-1)",
+                "                )",
+                "            )",
+                "            "
+              ],
+              "annotations": [
+                {
+                  "name": "GoalType",
+                  "value": "StaticValue"
+                },
+                {
+                  "name": "KpiStatusType",
+                  "value": "LinearReversed"
+                },
+                {
+                  "name": "KpiThresholdType",
+                  "value": "Absolute"
+                },
+                {
+                  "name": "KpiThresholdOrdering",
+                  "value": "Ascending"
+                },
+                {
+                  "name": "KpiThresholdCount",
+                  "value": "2"
+                },
+                {
+                  "name": "KpiThreshold_0",
+                  "value": "3"
+                },
+                {
+                  "name": "KpiThreshold_1",
+                  "value": "3.0001"
+                }
+              ]
+            }
+          },
+          {
+            "name": "No. Avaliable Bank",
+            "expression": " DISTINCTCOUNT(FactOrderPayments[bank_name])"
+          },
+          {
+            "name": "No. Avaliable Payment",
+            "expression": " DISTINCTCOUNT(FactOrderPayments[payment_type])"
+          },
+          {
+            "name": "No. Canceled Order",
+            "expression": [
+              " CALCULATE",
+              "(COUNT(FactOrderPayments[order_status]) , ",
+              "FactOrderPayments[order_status]  =\"canceled\" ) ",
+              ""
+            ],
+            "kpi": {
+              "targetExpression": "100",
+              "statusGraphic": "Traffic Light - Single",
+              "statusExpression": [
+                "var x='FactOrderPayments'[No. Canceled Order] return",
+                "            if(ISBLANK(x),BLANK(),",
+                "                    If(x<100,-1,",
+                "\t                If(x<100.01,0,1)",
+                "                )",
+                "            )",
+                "            "
+              ],
+              "annotations": [
+                {
+                  "name": "GoalType",
+                  "value": "StaticValue"
+                },
+                {
+                  "name": "KpiStatusType",
+                  "value": "Linear"
+                },
+                {
+                  "name": "KpiThresholdType",
+                  "value": "Absolute"
+                },
+                {
+                  "name": "KpiThresholdOrdering",
+                  "value": "Ascending"
+                },
+                {
+                  "name": "KpiThresholdCount",
+                  "value": "2"
+                },
+                {
+                  "name": "KpiThreshold_0",
+                  "value": "100"
+                },
+                {
+                  "name": "KpiThreshold_1",
+                  "value": "100.01"
+                }
+              ]
+            }
+          },
+          {
+            "name": "Total Payment",
+            "expression": " SUM( FactOrderPayments[payment_value])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Order Cancellation Rate (%)",
+            "expression": " [No. Canceled Order] / [Total Orders]",
+            "formatString": "0.00%;-0.00%;0.00%"
+          },
+          {
+            "name": "Order delivered Rate (%)",
+            "expression": " [No. delivered Order] / [Total Orders]",
+            "formatString": "0.00%;-0.00%;0.00%"
+          },
+          {
+            "name": "Payments Per Order",
+            "expression": " ROUND(DIVIDE([Total Payment], [Total Orders], 0),2)"
+          },
+          {
+            "name": "Credit Card Payment %",
+            "expression": [
+              "  ",
+              "DIVIDE(  ",
+              "    COUNTROWS(FILTER(FactOrderPayments, FactOrderPayments[payment_type] = \"credit_card\")),  ",
+              "    [Total Orders],  ",
+              "    0  ",
+              ") "
+            ],
+            "formatString": "0.00%;-0.00%;0.00%"
+          },
+          {
+            "name": "Customer Lifetime Value",
+            "expression": [
+              "  ",
+              "DIVIDE(  ",
+              "    [Total Sales],  ",
+              "    DISTINCTCOUNT(FactOrderPayments[customer_id_sk]),  ",
+              "    0  ",
+              ")"
+            ],
+            "formatString": "0.00",
+            "kpi": {
+              "targetExpression": "150",
+              "targetFormatString": "0.00",
+              "statusGraphic": "Traffic Light - Single",
+              "statusExpression": [
+                "var x='FactOrderPayments'[Customer Lifetime Value] return",
+                "            if(ISBLANK(x),BLANK(),",
+                "                    If(x<60,-1,",
+                "\t                If(x<120,0,1)",
+                "                )",
+                "            )",
+                "            "
+              ],
+              "annotations": [
+                {
+                  "name": "GoalType",
+                  "value": "StaticValue"
+                },
+                {
+                  "name": "KpiStatusType",
+                  "value": "Linear"
+                },
+                {
+                  "name": "KpiThresholdType",
+                  "value": "Absolute"
+                },
+                {
+                  "name": "KpiThresholdOrdering",
+                  "value": "Ascending"
+                },
+                {
+                  "name": "KpiThresholdCount",
+                  "value": "2"
+                },
+                {
+                  "name": "KpiThreshold_0",
+                  "value": "60"
+                },
+                {
+                  "name": "KpiThreshold_1",
+                  "value": "120"
+                }
+              ]
+            }
+          },
+          {
+            "name": "NO. Delivered Orders",
+            "expression": [
+              " ",
+              "CALCULATE(",
+              "    DISTINCTCOUNT(FactOrderPayments[order_id]), ",
+              "    FactOrderPayments[order_status] = \"delivered\"",
+              ")",
+              ""
+            ]
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "e691a4bd-ea2c-46c5-a48a-ce83fc361cff",
+        "fromTable": "FactOrderPayments",
+        "fromColumn": "customer_id_sk",
+        "toTable": "DimCustomer",
+        "toColumn": "customer_id_sk"
+      },
+      {
+        "name": "5e8f288d-7c96-429b-a6e5-0f0d313cfba2",
+        "fromTable": "FactOrderItem",
+        "fromColumn": "order_approved_at_datekey",
+        "toTable": "DimDate",
+        "toColumn": "DateSK",
+        "isActive": false
+      },
+      {
+        "name": "130bef76-9705-43e6-ba58-c8d6c499ea13",
+        "fromTable": "FactOrderItem",
+        "fromColumn": "order_delivered_carrier_datekey",
+        "toTable": "DimDate",
+        "toColumn": "DateSK",
+        "isActive": false
+      },
+      {
+        "name": "26295193-95fe-4629-9597-7eabc8195a22",
+        "fromTable": "FactOrderItem",
+        "fromColumn": "order_delivered_customer_datekey",
+        "toTable": "DimDate",
+        "toColumn": "DateSK",
+        "isActive": false
+      },
+      {
+        "name": "6210b038-6306-4e33-8fc4-a91ce2e1ba05",
+        "fromTable": "FactOrderItem",
+        "fromColumn": "order_estimated_delivery_datekey",
+        "toTable": "DimDate",
+        "toColumn": "DateSK",
+        "isActive": false
+      },
+      {
+        "name": "59204add-a78b-4b46-82dd-17b4cf388aaa",
+        "fromTable": "FactOrderItem",
+        "fromColumn": "order_purchase_datekey",
+        "toTable": "DimDate",
+        "toColumn": "DateSK"
+      },
+      {
+        "name": "3be8a23f-5dc8-459c-aba1-5abec4a4a138",
+        "fromTable": "FactOrderItem",
+        "fromColumn": "shipping_limit_datekey",
+        "toTable": "DimDate",
+        "toColumn": "DateSK",
+        "isActive": false
+      },
+      {
+        "name": "c673d4b9-ffba-4e74-8594-073348c126ab",
+        "fromTable": "FactOrderItem",
+        "fromColumn": "customer_id_sk",
+        "toTable": "DimCustomer",
+        "toColumn": "customer_id_sk"
+      },
+      {
+        "name": "b94b2459-4493-4214-8c6b-dec27b182d86",
+        "fromTable": "FactOrderPayments",
+        "fromColumn": "order_purchase_datekey",
+        "toTable": "DimDate",
+        "toColumn": "DateSK"
+      },
+      {
+        "name": "5b687312-086b-44c1-9837-ba69de9832cf",
+        "fromTable": "FactOrderItem",
+        "fromColumn": "review_id_sk",
+        "toTable": "DimOrderReview",
+        "toColumn": "review_id_sk"
+      },
+      {
+        "name": "11aed75d-8c88-4f94-aeec-d5f2d4fdb13e",
+        "fromTable": "FactOrderItem",
+        "fromColumn": "product_id_sk",
+        "toTable": "DimProduct",
+        "toColumn": "product_id_sk"
+      },
+      {
+        "name": "f30bcf54-a24c-469c-b481-3bbc4556dc21",
+        "fromTable": "FactOrderItem",
+        "fromColumn": "seller_id_sk",
+        "toTable": "DimSeller",
+        "toColumn": "seller_id_sk"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "600"
+      }
+    ]
+  }
+}
