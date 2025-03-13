@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.35425.106
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "Friday_Fact_Payment", "Friday_Fact_Payment\Friday_Fact_Payment.dtproj", "{38FDBD00-51C1-44C4-B678-ED3A1013C712}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{38FDBD00-51C1-44C4-B678-ED3A1013C712}.Development|Default.ActiveCfg = Development
+		{38FDBD00-51C1-44C4-B678-ED3A1013C712}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {29C46D2D-7219-411A-81AF-606D004EAB62}
+	EndGlobalSection
+EndGlobal
