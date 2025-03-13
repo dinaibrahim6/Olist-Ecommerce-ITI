@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "Payment Method Report", "Payment Method Report.rptproj", "{65A983A9-84D1-420F-A6A0-C227F1054C85}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{65A983A9-84D1-420F-A6A0-C227F1054C85}.Debug|Default.ActiveCfg = Debug
+		{65A983A9-84D1-420F-A6A0-C227F1054C85}.Debug|Default.Build.0 = Debug
+		{65A983A9-84D1-420F-A6A0-C227F1054C85}.Debug|Default.Deploy.0 = Debug
+		{65A983A9-84D1-420F-A6A0-C227F1054C85}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{65A983A9-84D1-420F-A6A0-C227F1054C85}.DebugLocal|Default.Build.0 = DebugLocal
+		{65A983A9-84D1-420F-A6A0-C227F1054C85}.Release|Default.ActiveCfg = Release
+		{65A983A9-84D1-420F-A6A0-C227F1054C85}.Release|Default.Build.0 = Release
+		{65A983A9-84D1-420F-A6A0-C227F1054C85}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
