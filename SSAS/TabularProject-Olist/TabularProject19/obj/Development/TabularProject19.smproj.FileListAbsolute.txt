@@ -1,0 +1,8 @@
+C:\Users\olaso\source\repos\TabularProject19\TabularProject19\bin\Model.asdatabase
+C:\Users\olaso\source\repos\TabularProject19\TabularProject19\bin\Model.deploymenttargets
+C:\Users\olaso\source\repos\TabularProject19\TabularProject19\bin\Model.deploymentoptions
+C:\Users\olaso\source\repos\TabularProject19\TabularProject19\obj\Development\TabularProject19.smproj.AssemblyReference.cache
+C:\Users\olaso\source\repos\TabularProject19\TabularProject19\obj\Development\TabularProject19.smproj.CoreCompileInputs.cache
+C:\Users\olaso\source\repos\TabularProject19\TabularProject19\obj\Development\Model.asdatabase
+C:\Users\olaso\source\repos\TabularProject19\TabularProject19\obj\Development\Model.deploymentoptions
+C:\Users\olaso\source\repos\TabularProject19\TabularProject19\obj\Development\Model.deploymenttargets
