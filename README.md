@@ -276,44 +276,44 @@ The SSAS Tabular Model was selected over the SSAS Multidimensional Model due to 
 ## SSRS Reports
 
 ### Customer Satisfaction Report
-This report analyzes customer satisfaction through key metrics such as Average CSAT, Positive/Negative Review Percentage, and identifies the Most/Least Satisfied Seller. Provides a tabular view of insights to help improve customer experience. 
+- This report analyzes customer satisfaction through key metrics such as Average CSAT, Positive/Negative Review Percentage, and identifies the Most/Least Satisfied Seller. Provides a tabular view of insights to help improve customer experience. 
  
  ![FactOrderItem](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/SSRS/SSRS_Screens/Customer%20Satisfaction%20.png)
 
 
 ### Seller Performance Report 
-This report evaluates seller effectiveness by tracking Total Revenue, Number of Orders, and Sold Units across different brands and product categories. Includes a trend analysis chart to monitor revenue fluctuations over time. 
+- This report evaluates seller effectiveness by tracking Total Revenue, Number of Orders, and Sold Units across different brands and product categories. Includes a trend analysis chart to monitor revenue fluctuations over time. 
  
  ![FactOrderItem](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/SSRS/SSRS_Screens/seller%20Performance.png)
  ![FactOrderItem](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/SSRS/SSRS_Screens/Seller%20Perfomance%202.png)
 
 
 ### Payment Method Report  
-This report assesses revenue distribution across various payment methods, highlighting Total Revenue and Number of Transactions per method. A bar chart provides a visual comparison for better decision-making.
+- This report assesses revenue distribution across various payment methods, highlighting Total Revenue and Number of Transactions per method. A bar chart provides a visual comparison for better decision-making.
  
  ![FactOrderItem](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/SSRS/SSRS_Screens/Payment%20Method.png)
 
 
 ### Product Performance Report  
-This report provides details on a specific product’s sales performance, including product ID, name, brand, seller, category, number of units sold, and total revenue. 
+- This report provides details on a specific product’s sales performance, including product ID, name, brand, seller, category, number of units sold, and total revenue. 
  
  ![FactOrderItem](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/SSRS/SSRS_Screens/Product%20perforamance.PNG)
 
 
 ### Sales Performance Report    
-This report tracks revenue and sales metrics over time, showing order dates, total revenue, order volume, and average order value. 
+- This report tracks revenue and sales metrics over time, showing order dates, total revenue, order volume, and average order value. 
  
  ![FactOrderItem](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/SSRS/SSRS_Screens/Sales%20performance.PNG)
 
 
 ### Customer Demographics Report   
-This report presents customer location-based sales data, including the number of customers, number of orders, and total sales.  
+- This report presents customer location-based sales data, including the number of customers, number of orders, and total sales.  
  
  ![FactOrderItem](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/SSRS/SSRS_Screens/CustomerDemographicsReport.PNG)
 
 
 ### Top N Selling Products Report    
-This Report shows the top 5 best-selling products based on total sales. It includes a table listing Product ID, Product Name, Product Category, Total Sales, and Number of Units Sold, along with a pie chart visualizing unit sold per product category.
+- This Report shows the top 5 best-selling products based on total sales. It includes a table listing Product ID, Product Name, Product Category, Total Sales, and Number of Units Sold, along with a pie chart visualizing unit sold per product category.
  
  ![FactOrderItem](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/SSRS/SSRS_Screens/TopN%20product.PNG)
  ![FactOrderItem](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/SSRS/SSRS_Screens/Screen.PNG)
