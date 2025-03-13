@@ -89,3 +89,164 @@ The dataset used in this project is a **Brazilian e-commerce public dataset** of
 
 - **Prevent Over-Payment** (`Prevent_Over_Payment`)
    - Ensures total payments for an order do not exceed the total order price.
+
+#  Data Warehouse (DWH)
+
+## Overview
+This Data Warehouse is designed to support analytical processing for an e-commerce platform. It uses a **Galaxy Schema**, which consists of **two fact tables** and multiple **dimension tables**. The schema facilitates advanced reporting and analytics by efficiently handling large-scale transactional data.
+
+## Why Do We Choose the Galaxy Schema?
+In this e-commerce business model, we have two different levels of granularity in our transactional data:
+
+- **Order Items Level (`Order_ItemsFact`)**: Each row represents an individual product in an order. A single order can contain multiple items.
+- **Order Payments Level (`Order_PaymentsFact`)**: Payment details are stored at the order level, not at the item level.
+
+### Why Not Use a Single Fact Table?
+Using a single fact table would introduce **data redundancy** and **incorrect aggregations**, leading to:
+
+- **Duplicated payment data** for each item in an order.
+- **Overcounted metrics** such as total revenue and payment installments.
+- **Complex and inefficient queries** when analyzing payments separately from orders.
+
+By adopting a **Galaxy Schema**, we ensure a structured, scalable, and optimized data model for efficient analytics and reporting.
+
+## Data Modeling:
+- **Dimensional Modeling**
+
+![Dimensional Modeling](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/DataWarehouse/Dimensional%20Modeling/OIist_E-Commerce_DWH-Galaxy.jpg)
+
+## Data Warehouse Implementation
+**Data Warehouse Schema**
+
+  The dimensional model was implemented in SSMS (SQL Server Management Studio) through SQL scripts. A diagram detailing the data warehouse schema is provided below.
+
+![DWH Diagram](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/DataWarehouse/DWH%20Schema/Schema.PNG)
+
+
+
+## ETL Process
+
+### Introduction
+
+The **ETL (Extract, Transform, Load) process** is essential for transferring data from the operational database (**Olist_Ecommerce_DB**) to the data warehouse (**Olist_Ecommerce_DWH**). This process ensures that the data is **cleansed, transformed, and optimized** for analytical reporting.
+
+### ETL Tool Used
+
+We used **SQL Server Integration Services (SSIS)** to automate the ETL workflow, ensuring efficiency and accuracy in data movement.
+
+### ETL Steps
+
+1. **Extract**
+   - Retrieve data from **Olist_Ecommerce_DB**.
+   - Ensure completeness and accuracy before proceeding.
+
+2. **Transform**
+   - Cleanse and standardize data.
+   - Apply business rules and data validation.
+   - Implement **Slowly Changing Dimensions (SCD Type 2)** for historical tracking.
+
+3. **Load**
+   - Insert transformed data into **Olist_Ecommerce_DWH**.
+   - Optimize indexing for fast query performance.
+
+By leveraging **SSIS**, we ensure a seamless, automated, and efficient ETL process that enhances data consistency and supports business intelligence initiatives.
+
+### ETL Process for Dimension Tables
+- **DimCustomer**
+
+  ![DimCustomer](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/SSIS/ETL_Screens/DimCustomer.png)
+
+- **DimProduct**
+  
+  ![DimProduct](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/SSIS/ETL_Screens/DimProduct.PNG)
+
+- **DimOrderReview**
+  
+  ![DimOrderReview](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/SSIS/ETL_Screens/DimReviews.PNG)
+
+- **DimSeller**
+
+![DimOrderReview](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/SSIS/ETL_Screens/DimSeller.PNG)
+
+
+## ETL Process for Fact Tables
+
+ - **FactOrderItem**
+ 
+ ![FactOrderItem](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/SSIS/ETL_Screens/FactOrderItem.PNG)
+
+ - **FactOrderPayments**
+
+  ![FactOrderPayments](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/SSIS/ETL_Screens/FactOrderPayment.PNG)
+
+  ## Data Warehouse Indexes
+
+Indexes are used to optimize data warehouse query performance. The following tables and columns are indexed:
+
+* **DimCustomer:**
+    * `customer_id`: Accelerates lookups and joins.
+    * `customer_state`: Optimizes searches by state.
+    * `customer_city`: Improves filtering by city.
+* **DimProduct:**
+    * `product_id`: Speeds up lookups.
+    * `product_category_name_English`: Improves filtering by category.
+* **DimOrderReview:**
+    * `review_id, order_id`: Ensures fast lookups and joins.
+    * `review_score`: Speeds up queries that analyze scores.
+* **DimSeller:**
+    * `seller_id`: Optimizes joins.
+    * `seller_city`: Enhances queries filtering by city.
+    * `seller_name`: Speeds up searches.
+* **FactOrderItem:**
+    * `customer_id_sk`: Optimizes joins.
+    * `seller_id_sk`: Speeds up lookups for seller-related transactions.
+    * `product_id_sk`: Improves filtering based on products.
+    * `order_purchase_timestamp_datekey`: Enhances performance for date-based queries.
+* **FactOrderPayments:**
+    * `order_id`: Speeds up searches.
+    * `payment_sequential`: Optimizes filtering.
+    * `payment_type`: Improves filtering by payment type.
+ 
+  ## Handling Unknown or Missing Data
+  To ensure data integrity and prevent foreign key violations, default records are used in the `DimOrderReview` and `DimDate` tables for missing or unknown data.
+
+* **DimOrderReview:** A default record with `review_id_sk = -1` is used when an order lacks review data. This prevents errors and ensures consistency in joins and aggregations.
+  
+    ![MissValuesForReview](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/SSIS/ETL_Screens/HandlingMissingValues2.PNG)
+  
+* **DimDate:** A default record with the date '1900-01-01' is used for missing dates, avoiding NULL-related errors in date-based queries.
+  
+    ![MissValuesForDate](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/SSIS/ETL_Screens/HandlingMisingValues.PNG)
+
+This approach maintains data integrity and facilitates smooth ETL processing.
+
+## SSAS Tabular Model 
+
+This stage involved the development of a SQL Server Analysis Services (SSAS) Tabular Model for the Olist E-commerce project. The SSAS Tabular Model was implemented to provide enhanced data analysis and Online Analytical Processing (OLAP) capabilities. This enables efficient reporting, trend analysis, and the generation of business intelligence insights.
+
+  ![SSAS model](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/SSAS/SSAS-Screens/Model.png)
+
+**Reasons for Choosing SSAS Tabular Model**
+
+The SSAS Tabular Model was selected over the SSAS Multidimensional Model due to several advantages:
+
+1.  **Performance and Speed:** The Tabular Model utilizes VertiPaq compression and in-memory processing, resulting in improved query performance, even with large datasets. 
+2.  **Ease of Development:** Compared to the multidimensional model, the Tabular Model offers easier design and implementation, requiring less complex data modeling. 
+3.  **DAX for Powerful Calculations:** The Data Analysis Expressions (DAX) language enables dynamic aggregations, Key Performance Indicators (KPIs), and time intelligence functions, providing greater flexibility in analytics. 
+4.  **Seamless Power BI Integration:** The Tabular Model offers direct integration with Power BI, Excel, and other reporting tools, facilitating the creation of real-time interactive dashboards. 
+
+**Model Components**
+
+* **Data Sources and Integration:** The model integrates data from various sources, including order transactions, customer demographics, seller information, product categories, and payment details. Data is extracted from transactional databases, preprocessed using SQL Server, and organized in a Galaxy schema to optimize querying.
+* **Model Implementation:**
+    * **Tables and Relationships:** The model comprises fact tables, such as FactOrders, FactPayments, and FactReviews, along with dimension tables, including DimCustomers, DimSellers, DimProducts, and DimDates. 
+    * **Measures and KPIs:** DAX measures were developed to calculate and analyze key business metrics. 
+
+ 
+
+ 
+  
+
+
+
+
