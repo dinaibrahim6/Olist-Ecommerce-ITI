@@ -1,0 +1,68 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\Power BI\\0- Graduation Project\\final files\\SSRS\\Customer Satisfication Report\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{41F80624-1348-483A-BE0C-0F19287EDCB9}|Customer Satisfication Report.rptproj|E:\\Power BI\\0- Graduation Project\\final files\\SSRS\\Customer Satisfication Report\\Seller Performance Report.rdl||{420F4200-DD61-4785-81F3-52669CBC208E}",
+      "RelativeMoniker": "D:0:0:{41F80624-1348-483A-BE0C-0F19287EDCB9}|Customer Satisfication Report.rptproj|solutionrelative:Seller Performance Report.rdl||{420F4200-DD61-4785-81F3-52669CBC208E}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41F80624-1348-483A-BE0C-0F19287EDCB9}|Customer Satisfication Report.rptproj|E:\\Power BI\\0- Graduation Project\\final files\\SSRS\\Customer Satisfication Report\\Customer Satisfaction.rdl||{420F4200-DD61-4785-81F3-52669CBC208E}",
+      "RelativeMoniker": "D:0:0:{41F80624-1348-483A-BE0C-0F19287EDCB9}|Customer Satisfication Report.rptproj|solutionrelative:Customer Satisfaction.rdl||{420F4200-DD61-4785-81F3-52669CBC208E}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41F80624-1348-483A-BE0C-0F19287EDCB9}|Customer Satisfication Report.rptproj|E:\\Power BI\\0- Graduation Project\\final files\\SSRS\\Customer Satisfication Report\\Payment_Method_Report.rdl||{420F4200-DD61-4785-81F3-52669CBC208E}",
+      "RelativeMoniker": "D:0:0:{41F80624-1348-483A-BE0C-0F19287EDCB9}|Customer Satisfication Report.rptproj|solutionrelative:Payment_Method_Report.rdl||{420F4200-DD61-4785-81F3-52669CBC208E}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Customer Satisfaction.rdl [Design]",
+              "DocumentMoniker": "E:\\Power BI\\0- Graduation Project\\final files\\SSRS\\Customer Satisfication Report\\Customer Satisfaction.rdl",
+              "RelativeDocumentMoniker": "Customer Satisfaction.rdl",
+              "ToolTip": "E:\\Power BI\\0- Graduation Project\\final files\\SSRS\\Customer Satisfication Report\\Customer Satisfaction.rdl [Design]",
+              "RelativeToolTip": "Customer Satisfaction.rdl [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-03-04T12:00:26.143Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Seller Performance Report.rdl [Design]",
+              "DocumentMoniker": "E:\\Power BI\\0- Graduation Project\\final files\\SSRS\\Customer Satisfication Report\\Seller Performance Report.rdl",
+              "RelativeDocumentMoniker": "Seller Performance Report.rdl",
+              "ToolTip": "E:\\Power BI\\0- Graduation Project\\final files\\SSRS\\Customer Satisfication Report\\Seller Performance Report.rdl [Design]",
+              "RelativeToolTip": "Seller Performance Report.rdl [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-03-04T00:30:43.258Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Payment_Method_Report.rdl [Design]",
+              "DocumentMoniker": "E:\\Power BI\\0- Graduation Project\\final files\\SSRS\\Customer Satisfication Report\\Payment_Method_Report.rdl",
+              "RelativeDocumentMoniker": "Payment_Method_Report.rdl",
+              "ToolTip": "E:\\Power BI\\0- Graduation Project\\final files\\SSRS\\Customer Satisfication Report\\Payment_Method_Report.rdl [Design]",
+              "RelativeToolTip": "Payment_Method_Report.rdl [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-03-04T00:12:13.112Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
