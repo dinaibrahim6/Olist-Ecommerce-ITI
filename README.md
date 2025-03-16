@@ -1,5 +1,7 @@
 # Olist-Ecommerce-ITI 
 
+![olist](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/Dataset/Screen/Olist.png)
+
 ## Overview
 Welcome! This project focuses on the **design and implementation of a database and data warehouse** for Olist, a Brazilian e-commerce platform. It aims to provide a structured approach for managing transactional data, supporting efficient query processing, and enabling advanced business intelligence solutions.
 
@@ -10,7 +12,7 @@ The dataset used in this project is a **Brazilian e-commerce public dataset** of
 - **Implement stored procedures, triggers, and views** to ensure data consistency and optimize performance.
 - **Develop a data warehouse** (OLAP) for business intelligence and analytics.
 - **Perform ETL processes** (Extract, Transform, Load) to clean, integrate, and prepare data for analysis.
-- **Develop an SSAS Tabular Model** for multi-dimensional analysis and advanced reporting.
+- **Develop an SSAS Tabular Model** for analysis and advanced reporting.
 - **Create dashboards and reports using SSRS, Power BI, Excel, and Tableau** for data visualization and decision-making.
 
 ## Project Structure
