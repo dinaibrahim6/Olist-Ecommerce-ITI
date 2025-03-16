@@ -220,7 +220,7 @@ Indexes are used to optimize data warehouse query performance. The following tab
 
 This approach maintains data integrity and facilitates smooth ETL processing.
 
-## SSAS Tabular Model 
+## SSAS (Tabular Mode)
 
 This stage involved the development of a SQL Server Analysis Services (SSAS) Tabular Model for the Olist E-commerce project. The SSAS Tabular Model was implemented to provide enhanced data analysis and Online Analytical Processing (OLAP) capabilities. This enables efficient reporting, trend analysis, and the generation of business intelligence insights.
 
