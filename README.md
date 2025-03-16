@@ -313,7 +313,7 @@ The SSAS Tabular Model was selected over the SSAS Multidimensional Model due to 
 
 
 ### Top N Selling Products Report    
-- This Report shows the top 5 best-selling products based on total sales. It includes a table listing Product ID, Product Name, Product Category, Total Sales, and Number of Units Sold, along with a pie chart visualizing unit sold per product category.
+- This Report shows the top 3 best-selling products based on total sales. It includes a table listing Product ID, Product Name, Product Category, Total Sales, and Number of Units Sold, along with a pie chart visualizing unit sold per product category.
  
  ![SSRS Reports](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/SSRS/SSRS_Screens/Top%20N%20Products.PNG)
 
