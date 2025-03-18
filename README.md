@@ -310,7 +310,7 @@ The SSAS Tabular Model was selected over the SSAS Multidimensional Model due to 
 ### Product Performance Report  
 - This report provides details on a specific product’s sales performance, including product ID, name, brand, seller, category, number of units sold, and total revenue. 
  
- ![SSRS Reports](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/SSRS/SSRS_Screens/Product%20perforamance.PNG)
+ ![SSRS Reports](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/SSRS/SSRS_Screens/Products.PNG)
 
 
 ### Sales Performance Report    
