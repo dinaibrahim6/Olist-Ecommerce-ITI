@@ -175,7 +175,18 @@ By leveraging **SSIS**, we ensure a seamless, automated, and efficient ETL proce
 
  - **FactOrderItem**
  
- ![FactOrderItem](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/SSIS/ETL_Screens/FactOrderItem.PNG)
+
+![FactOrderItem](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/SSIS/ETL_Screens/FactOrderItem1.PNG)   
+
+![FactOrderItem](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/SSIS/ETL_Screens/FactOrderItem2.PNG)
+
+![FactOrderItem](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/SSIS/ETL_Screens/FactOrderItem.PNG)
+
+
+  
+  
+ 
+ 
 
  - **FactOrderPayments**
 
