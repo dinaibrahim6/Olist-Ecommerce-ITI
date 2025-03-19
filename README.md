@@ -1,5 +1,7 @@
 # Olist-Ecommerce-ITI 
 
+![olist](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/Dataset/Screen/Olist.png)
+
 ## Overview
 Welcome! This project focuses on the **design and implementation of a database and data warehouse** for Olist, a Brazilian e-commerce platform. It aims to provide a structured approach for managing transactional data, supporting efficient query processing, and enabling advanced business intelligence solutions.
 
@@ -10,7 +12,7 @@ The dataset used in this project is a **Brazilian e-commerce public dataset** of
 - **Implement stored procedures, triggers, and views** to ensure data consistency and optimize performance.
 - **Develop a data warehouse** (OLAP) for business intelligence and analytics.
 - **Perform ETL processes** (Extract, Transform, Load) to clean, integrate, and prepare data for analysis.
-- **Develop an SSAS Tabular Model** for multi-dimensional analysis and advanced reporting.
+- **Develop an SSAS Tabular Model** for analysis and advanced reporting.
 - **Create dashboards and reports using SSRS, Power BI, Excel, and Tableau** for data visualization and decision-making.
 
 ## Project Structure
@@ -173,7 +175,18 @@ By leveraging **SSIS**, we ensure a seamless, automated, and efficient ETL proce
 
  - **FactOrderItem**
  
- ![FactOrderItem](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/SSIS/ETL_Screens/FactOrderItem.PNG)
+
+![FactOrderItem](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/SSIS/ETL_Screens/FactOrderItem1.PNG)   
+
+![FactOrderItem](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/SSIS/ETL_Screens/FactOrderItem2.PNG)
+
+![FactOrderItem](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/SSIS/ETL_Screens/FactOrderItem.PNG)
+
+
+  
+  
+ 
+ 
 
  - **FactOrderPayments**
 
@@ -220,7 +233,7 @@ Indexes are used to optimize data warehouse query performance. The following tab
 
 This approach maintains data integrity and facilitates smooth ETL processing.
 
-## SSAS Tabular Model 
+## SSAS (Tabular Mode)
 
 This stage involved the development of a SQL Server Analysis Services (SSAS) Tabular Model for the Olist E-commerce project. The SSAS Tabular Model was implemented to provide enhanced data analysis and Online Analytical Processing (OLAP) capabilities. This enables efficient reporting, trend analysis, and the generation of business intelligence insights.
 
@@ -291,32 +304,31 @@ The SSAS Tabular Model was selected over the SSAS Multidimensional Model due to 
 ### Payment Method Report  
 - This report assesses revenue distribution across various payment methods, highlighting Total Revenue and Number of Transactions per method. A bar chart provides a visual comparison for better decision-making.
  
- ![FactOrderItem](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/SSRS/SSRS_Screens/Payment%20Method.png)
+ ![SSRS Reports](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/SSRS/SSRS_Screens/Payment%20Method.png)
 
 
 ### Product Performance Report  
 - This report provides details on a specific product’s sales performance, including product ID, name, brand, seller, category, number of units sold, and total revenue. 
  
- ![FactOrderItem](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/SSRS/SSRS_Screens/Product%20perforamance.PNG)
+ ![SSRS Reports](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/SSRS/SSRS_Screens/Products.PNG)
 
 
 ### Sales Performance Report    
 - This report tracks revenue and sales metrics over time, showing order dates, total revenue, order volume, and average order value. 
  
- ![FactOrderItem](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/SSRS/SSRS_Screens/Sales%20performance.PNG)
+ ![SSRS Reports](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/SSRS/SSRS_Screens/Sales%20performance.PNG)
 
 
 ### Customer Demographics Report   
 - This report presents customer location-based sales data, including the number of customers, number of orders, and total sales.  
  
- ![FactOrderItem](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/SSRS/SSRS_Screens/CustomerDemographicsReport.PNG)
+ ![SSRS Reports](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/SSRS/SSRS_Screens/CustomerDemographicsReport.PNG)
 
 
 ### Top N Selling Products Report    
-- This Report shows the top 5 best-selling products based on total sales. It includes a table listing Product ID, Product Name, Product Category, Total Sales, and Number of Units Sold, along with a pie chart visualizing unit sold per product category.
+- This Report shows the top 3 best-selling products based on total sales. It includes a table listing Product ID, Product Name, Product Category, Total Sales, and Number of Units Sold, along with a pie chart visualizing unit sold per product category.
  
- ![FactOrderItem](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/SSRS/SSRS_Screens/TopN%20product.PNG)
- ![FactOrderItem](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/SSRS/SSRS_Screens/Screen.PNG)
+ ![SSRS Reports](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/SSRS/SSRS_Screens/Top%20N%20Products.PNG)
 
 
 
