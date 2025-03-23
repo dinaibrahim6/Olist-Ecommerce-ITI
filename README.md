@@ -331,5 +331,58 @@ The SSAS Tabular Model was selected over the SSAS Multidimensional Model due to 
  ![SSRS Reports](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/SSRS/SSRS_Screens/Top%20N%20Products.PNG)
 
 
+## Power BI
+
+Power BI is used to create interactive dashboards that provide real-time insights into key performance indicators (KPIs). These dashboards allow users to visualize data, explore trends, and make data-driven decisions. Power BI connects seamlessly to the SSAS Tabular Model, enabling the creation of dynamic and interactive reports.
+
+**Key Features and Benefits :**
+  - Interactive dashboards with drill-down capabilities.
+  - Data visualization and exploration.
+  - Real-time data updates.
+  - Integration with SSAS Tabular Model.
+  - Mobile access for on-the-go insights.
+
+## Power BI Dashboards
+
+### Sales Performance 
+
+### Geographic Sales Dashboard
+
+
+### Customer Demographics Dashboard
+
+
+### Customer Segmentation Dashboard
+
+
+### Customer Lifetime Value (CLTV) Dashboard
+
+### Seller Performance Dashboard
+
+
+
+### Product Performance Dashboard
+
+
+
+### Delivery Performance Dashboard
+
+
+### Payment Methods Dashboard
+
+
+### Review Sentiment Analysis Dashboard
+
+
+### Q&A Dashboard
+
+
+### Summary Dashboard
+
+
+
+
+
+
 
 
