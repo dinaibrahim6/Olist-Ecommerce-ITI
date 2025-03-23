@@ -346,51 +346,51 @@ Power BI is used to create interactive dashboards that provide real-time insight
 
 ### Sales Performance Dashboard
 
-![Sales Performance](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/Power%20BI/DashboardScreen/DashboardScreen/SalesPerformance.PNG)
+![Sales Performance](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/Power%20BI/DashboardScreen/SalesPerformance.PNG)
 
 ### Geographic Sales Dashboard
 
-![Geographic Sales](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/Power%20BI/DashboardScreen/DashboardScreen/geographicsales.PNG)
+![Geographic Sales](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/Power%20BI/DashboardScreen/geographicsales.PNG)
 
 ### Customer Demographics Dashboard
 
-![Customer Demographics](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/Power%20BI/DashboardScreen/DashboardScreen/cusdemo.PNG)
+![Customer Demographics](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/Power%20BI/DashboardScreen/cusdemo.PNG)
 
 ### Customer Segmentation Dashboard
 
-![Customer Segmentation](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/Power%20BI/DashboardScreen/DashboardScreen/cusseg.PNG)
+![Customer Segmentation](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/Power%20BI/DashboardScreen/cusseg.PNG)
 
 ### Customer Lifetime Value (CLTV) Dashboard
 
-![Customer Lifetime Value](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/Power%20BI/DashboardScreen/DashboardScreen/cLv.PNG)
+![Customer Lifetime Value](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/Power%20BI/DashboardScreen/cLv.PNG)
 
 ### Seller Performance Dashboard
 
-![Seller Performance](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/Power%20BI/DashboardScreen/DashboardScreen/seller.PNG)
+![Seller Performance](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/Power%20BI/DashboardScreen/seller.PNG)
 
 ### Product Performance Dashboard
 
-![Product Performance](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/Power%20BI/DashboardScreen/DashboardScreen/Product.PNG)
+![Product Performance](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/Power%20BI/DashboardScreen/Product.PNG)
 
 ### Delivery Performance Dashboard
 
-![Delivery Performance](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/Power%20BI/DashboardScreen/DashboardScreen/Delivery.PNG)
+![Delivery Performance](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/Power%20BI/DashboardScreen/Delivery.PNG)
 
 ### Payment Methods Dashboard
 
-![Payment Methods](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/Power%20BI/DashboardScreen/DashboardScreen/Payment.PNG)
+![Payment Methods](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/Power%20BI/DashboardScreen/Payment.PNG)
 
 ### Review Sentiment Analysis Dashboard
 
-![Review Sentiment Analysis](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/Power%20BI/DashboardScreen/DashboardScreen/review.PNG)
+![Review Sentiment Analysis](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/Power%20BI/DashboardScreen/review.PNG)
 
 ### Q&A Dashboard
 
-![Q&A](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/Power%20BI/DashboardScreen/DashboardScreen/Q%26A.PNG)
+![Q&A](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/Power%20BI/DashboardScreen/Q%26A.PNG)
 
 ### Summary Dashboard
 
-![Summary](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/Power%20BI/DashboardScreen/DashboardScreen/Summery.PNG)
+![Summary](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/Power%20BI/DashboardScreen/Summery.PNG)
 
 ## Tableau Dashboards
 
