@@ -291,13 +291,13 @@ The SSAS Tabular Model was selected over the SSAS Multidimensional Model due to 
 ### Customer Satisfaction Report
 - This report analyzes customer satisfaction through key metrics such as Average CSAT, Positive/Negative Review Percentage, and identifies the Most/Least Satisfied Seller. Provides a tabular view of insights to help improve customer experience. 
  
- ![FactOrderItem](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/SSRS/SSRS_Screens/Customer%20Satisfaction%20.png)
+ ![FactOrderItem](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/SSRS/SSRS_Screens/Customer%20Satisfication.png)
 
 
 ### Seller Performance Report 
 - This report evaluates seller effectiveness by tracking Total Revenue, Number of Orders, and Sold Units across different brands and product categories. Includes a trend analysis chart to monitor revenue fluctuations over time. 
  
- ![FactOrderItem](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/SSRS/SSRS_Screens/seller%20Performance.png)
+ ![FactOrderItem](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/SSRS/SSRS_Screens/Seller%20Performance1.png)
  ![FactOrderItem](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/SSRS/SSRS_Screens/Seller%20Perfomance%202.png)
 
 
