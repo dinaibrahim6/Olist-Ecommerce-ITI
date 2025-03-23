@@ -384,6 +384,17 @@ Power BI is used to create interactive dashboards that provide real-time insight
 
 ## Excel Dashboards
 
+### Overview Dashboard
+This Overview Dashboard provides insights into total sales, orders, and seller performance. It highlights top-selling products, customer distribution, and monthly sales trends for better decision-making. The geographic analysis feature enables businesses to optimize strategies by identifying high-performing regions. 
+
+
+![Excel dashboard](https://github.com/olasobhy/Olist-Ecommerce-ITI/blob/main/Excel%20Dashboard/1.png)
+
+### Orders Dashboard
+This Order Trends Dashboard provides insights into order volume, delivery performance, and seller activity over different time periods. It tracks total orders, cancellations, and on-time delivery rates while analyzing top-performing sellers and product categories. Additionally, it includes user login type analysis to understand customer engagement patterns.
+![Excel dashboard](https://github.com/olasobhy/Olist-Ecommerce-ITI/blob/main/Excel%20Dashboard/2.png)
+
+
 
 
 
