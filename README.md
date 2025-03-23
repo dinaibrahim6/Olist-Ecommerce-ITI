@@ -322,7 +322,7 @@ The SSAS Tabular Model was selected over the SSAS Multidimensional Model due to 
 ### Customer Demographics Report   
 - This report presents customer location-based sales data, including the number of customers, number of orders, and total sales.  
  
- ![SSRS Reports](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/SSRS/SSRS_Screens/CustomerDemographicsReport.PNG)
+ ![SSRS Reports](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/SSRS/SSRS_Screens/Customer%20Demographics.PNG)
 
 
 ### Top N Selling Products Report    
