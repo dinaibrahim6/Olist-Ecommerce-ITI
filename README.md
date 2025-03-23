@@ -387,7 +387,6 @@ Power BI is used to create interactive dashboards that provide real-time insight
 ### Overview Dashboard
 This Overview Dashboard provides insights into total sales, orders, and seller performance. It highlights top-selling products, customer distribution, and monthly sales trends for better decision-making. The geographic analysis feature enables businesses to optimize strategies by identifying high-performing regions. 
 
-
 ![Excel dashboard](https://github.com/olasobhy/Olist-Ecommerce-ITI/blob/main/Excel%20Dashboard/1.png)
 
 ### Orders Dashboard
