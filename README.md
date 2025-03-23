@@ -378,7 +378,7 @@ Power BI is used to create interactive dashboards that provide real-time insight
 
 ### Payment Methods Dashboard
 
-
+![Payment Methods](https://github.com/dinaibrahim6/Olist-Ecommerce-ITI/blob/main/Power%20BI/DashboardScreen/DashboardScreen/Payment.PNG)
 
 ### Review Sentiment Analysis Dashboard
 
