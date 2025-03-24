@@ -402,9 +402,9 @@ This Overview Dashboard provides insights into total sales, orders, and seller p
 
 
 ### Orders Dashboard
-This Order Trends Dashboard provides insights into order volume, delivery performance, and seller activity over different time periods. It tracks total orders, cancellations, and on-time delivery rates while analyzing top-performing sellers and product categories. Additionally, it includes total orders per top product.
+This Order Trends Dashboard provides insights into order volume, delivery performance, and seller activity over different time periods. It tracks total orders, cancellations, and on-time delivery rates while analyzing top-performing sellers and product categories. Additionally, it includes total payment per payment type.
 
-![Excel dashboard](https://github.com/olasobhy/Olist-Ecommerce-ITI/blob/main/Excel%20Dashboard/d_2.png)
+![Excel dashboard](https://github.com/olasobhy/Olist-Ecommerce-ITI/blob/main/Excel%20Dashboard/d2.png)
 
 
 
