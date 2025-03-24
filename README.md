@@ -406,6 +406,15 @@ This Order Trends Dashboard provides insights into order volume, delivery perfor
 
 ![Excel dashboard](https://github.com/olasobhy/Olist-Ecommerce-ITI/blob/main/Excel%20Dashboard/d2.png)
 
+## Contributors
+This project was made possible through the collaborative efforts of:
+- Asmaa Moayad
+- Dina Ibrahim
+- Karen Fayez
+- Roaa Ayman
+- Ola Sobhy
+
+
 
 
 
